@@ -34,7 +34,7 @@ int main() {
 int get_anagram (char arr1[], char arr2[])
 {
     // create two num arrays and initialize their value as 0
-    int num1[20] = {0}, num2[20] = {0}, i = 0;
+    int num1[26] = {0}, num2[26] = {0}, i = 0;
 
     // use while loop to check arr1 is not null
     while (arr1[i] != '\0')
@@ -52,7 +52,7 @@ int get_anagram (char arr1[], char arr2[])
         i++;
     }
 
-    for (i = 0; i < 20; i++)
+    for (i = 0; i < 26; i++)
     {
         if ( num1[i] != num2[i])
             return 0;
