@@ -11,15 +11,17 @@ public class chained_if_else_number_comparision {
         int num3 = s.nextInt();
 
         if (num1 > num2) {
-            if (num2 > num3) {
+            if (num1 > num3) {
                 System.out.println("The first number is greater");
             }
-        } else if (num2 > num1) {
-            System.out.println("The second number is greater");
-        } else if (num3 > num1) {
-            if (num3 > num2) {
+        } else if (num2 > num3) {
+            // if (num2 > num3){
+                System.out.println("The second number is greater");
+            // }
+        } else if (num3 > num2) {
+            // if (num3 > num2) {
                 System.out.println("The third number is greater");
-            }
+            // }
         } else {
             System.out.println("All three numbers are equal");
         }
