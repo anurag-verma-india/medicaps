@@ -20,8 +20,7 @@ int printLinkedList(node *head)
     printf("\n");
     while (ptr != NULL)
     {
-        printf("%d", ptr->data);
-        printf("\n");
+        printf("%d\n", ptr->data);
         ptr = ptr->next;
     }
     return 0;
@@ -37,12 +36,12 @@ int printLast(node *head)
     }
 
     ptr = head->next;
-    while (ptr != NULL)
+    while (ptr->next != NULL)
     {
         nextNode = ptr -> next;
         if (nextNode->next == NULL)
         {
-            printf("%d", nextNode->data);
+            printf("%d\n", nextNode->data);
         }
         
         // printf("%d", ptr->data);
@@ -61,18 +60,20 @@ int addAtLast(node *head)
     }
 
     ptr = head->next;
-    // Traversing to find the last element
-    while (ptr != NULL)
+    while (ptr->next != NULL)
     {
         nextNode = ptr->next;
         if (nextNode->next == NULL)
         {
             // printf("%d", nextNode->data);
+            // lastNode->data = nextNode->data;
             lastNode = nextNode;
         }
+
+        printf("%d", lastNode->data);
+        // printf("%d", ptr->data);
         ptr = nextNode;
     }
-    printf("%d", lastNode->data);
     return 0;
 }
 
@@ -94,9 +95,9 @@ int main()
 
     head -> next = one;
 
-    // printLinkedList(head);
+    printLinkedList(head);
     // printLast(head);
-    addAtLast(head);
+    // addAtLast(head);
 
     return 0;
 }
