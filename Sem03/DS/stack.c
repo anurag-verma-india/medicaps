@@ -8,7 +8,7 @@ struct StackNode {
     int data;
     struct StackNode* next;
 };
- 
+
 struct StackNode* newNode(int data)
 {
     struct StackNode* stackNode =
