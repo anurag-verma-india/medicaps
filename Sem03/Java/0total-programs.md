@@ -16,6 +16,7 @@
 - [Simple interest](./simple_interest.java)
 - [](./factorial_for_loop.java)
 - [](./factorial_recursive.java)
+- [](./fibonacci.java)
 - [](./single_inheritance.java)
 - [](./bank.java)
 - [](./student_inheritance.java)
