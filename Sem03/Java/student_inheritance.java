@@ -36,8 +36,9 @@ class result extends student{
         input_subject_marks();
     }
     void input_subject_marks() {
+        String[] subjects = new String[]{"Physics", "Chemistry", "Maths", "Hindi", "Physical Education"};
         for(int i=0; i<5; i++) {
-            System.out.print("Enter marks of subject number "+(i+1)+ ": ");
+            System.out.print("Enter marks of "+subjects[i]+ ": ");
             marks[i]= s.nextInt();
             sum+=marks[i];
         }
@@ -55,10 +56,11 @@ class sports extends student {
         input_sport_score();
     }
         void input_sport_score() {
-        for(int i=0; i<3; i++) {
-            System.out.print("Enter score of sport number "+(i+1)+ ": ");
-            score[i]= s.nextInt();
-            sum+=score[i];
-        }
+            String[] games = new String[]{"Cricket", "Football", "Volleyball"};
+            for(int i=0; i<3; i++) {
+                System.out.print("Enter score of "+games[i]+ ": ");
+                score[i]= s.nextInt();
+                sum+=score[i];
+            }
     }
 }

@@ -1,18 +1,20 @@
 import java.util.Scanner;
 
 public class factorial_recursive {
-    public static void main(String [] args) {
-        int num, fact;
-        Scanner s = new Scanner(System.in);
-        
-        System.out.println("Enter a number: ");
-        num = s.nextInt();
-        
-        fact = 1;
-        for (int i =0;i < num; i++)
+    static int factorial(int num)
+    {
+        if(num==1){
+            return 1;
+        } else
         {
-            fact = fact * (num - i);
+            return num*factorial(num - 1);
         }
-        System.out.println("Factorial of 5 is " + fact);
+    }
+    public static void main(String[] args)
+    {
+        Scanner s = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = s.nextInt();
+        System.out.println("Factorial of "+num+" is: "+factorial(num));
     }
 }

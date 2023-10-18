@@ -1,5 +1,5 @@
 - [Addition of numbers](./addition_of_numbers.java)
 - [swapping of two numbers](./swapping_variables.java)
 - [simple interest]()
-- even odd detection
-- factorial
+- [even odd detection]()
+- [factorial]
