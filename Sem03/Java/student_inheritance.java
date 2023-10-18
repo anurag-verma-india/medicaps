@@ -38,7 +38,7 @@ class result extends student{
     void input_subject_marks() {
         String[] subjects = {"Physics", "Chemistry", "Maths", "Hindi", "Physical Education"};
         for(int i=0; i<5; i++) {
-            System.out.print("Enter marks of "+subjects[i]+ ": ");
+            System.out.print("Enter marks of subject number "+(i+1)+ ": ");
             marks[i]= s.nextInt();
             sum+=marks[i];
         }
