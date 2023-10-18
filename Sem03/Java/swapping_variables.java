@@ -8,7 +8,7 @@ public class swapping_variables {
 
         System.out.print("Enter first number: ");
         var1 = s.nextInt();
-        System.out.print("Enter secont number: ");
+        System.out.print("Enter second number: ");
         var2 = s.nextInt();
 
         System.out.println("Before swap \n var1: " + var1+"\n var2: "+var2+"\n");
