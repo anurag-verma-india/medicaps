@@ -10,7 +10,7 @@ typedef struct node
 int printLinkedList(node *head)
 {
     node *ptr;
-    if (head -> next == NULL)
+    if (head->next == NULL)
     {
         printf("This is an empty list");
         return 0;
@@ -38,12 +38,12 @@ int printLast(node *head)
     ptr = head->next;
     while (ptr->next != NULL)
     {
-        nextNode = ptr -> next;
+        nextNode = ptr->next;
         if (nextNode->next == NULL)
         {
             printf("%d\n", nextNode->data);
         }
-        
+
         // printf("%d", ptr->data);
         ptr = nextNode;
     }
@@ -89,11 +89,11 @@ int main()
     two->data = 2;
     three->data = 3;
 
-    one -> next = two;
-    two -> next = three;
-    three -> next = NULL;
+    one->next = two;
+    two->next = three;
+    three->next = NULL;
 
-    head -> next = one;
+    head->next = one;
 
     printLinkedList(head);
     // printLast(head);
