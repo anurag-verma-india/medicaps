@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class array_list_example {
+public class ArrayList_example {
     public static void main(String[] args) {
         ArrayList<String> list1 = new ArrayList<>();
         
@@ -60,3 +60,4 @@ public class array_list_example {
         System.out.println("Value at index 2 in list1: "+list1.get(2)+"\n");
     }
 }
+

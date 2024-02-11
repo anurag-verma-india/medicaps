@@ -6,8 +6,8 @@ public class ArrayList_printing {
         ArrayList<String> list1 = new ArrayList<>();
 
         list1.add("a");
-        list1.add("a");
-        list1.add("a");
+        list1.add("b");
+        list1.add("c");
 
         //
         System.out.println("Using for each loop");
