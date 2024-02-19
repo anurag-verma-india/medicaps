@@ -2,4 +2,5 @@
 1. [Print Array List](./ArrayList_printing.java)
 2. [Set basic with hash set](./sets_implementation.java)
 3. [Basics of map](./Map_Basic.java)
-4.    - [Better Generics](Generics.java)
+4. [Generic functions, methods & wildcards](./GenericBoxMain.java)
+5. [Lambda Expression with Generic Interface](./lambda_expression.java)
