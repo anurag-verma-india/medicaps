@@ -1,5 +1,5 @@
 interface someInterface<T> {
-    T add(T num1, T num2);
+    T add(T var1, T var2);
 }
 
 public class lambda_expression {
