@@ -1,0 +1,55 @@
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(./images/old-pgae.jpg);
+    color: #ffffff;
+}
+
+body {
+    text-align: center;
+    margin: 0 auto;
+}
+
+a {
+    color: #dddddd;
+}
+
+a:hover {
+    color: #00aaff;
+}
+
+a:hover:visited {
+    color: #00aaff;
+}
+
+a:visited {
+    color: #99ddff;
+}
+
+.table-image-center {
+    text-align: center;
+}
+
+
+table {
+    width: 100%;
+    color: #ffffff;
+}
+
+th {
+    color: white;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid white;
+}
+
+th {
+    background-color: black;
+}
+
+button {
+    font-size: x-large;
+}
