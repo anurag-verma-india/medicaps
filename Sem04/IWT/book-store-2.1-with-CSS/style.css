@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap');
+
+/* iv. working with layers  */
+@layer base, special;
+
+@layer special {
+    .special-font {
+        /* i. using different fonts */
+        font-family: "Kalam", cursive;
+        font-weight: 700;
+        font-style: normal;
+    }
+}
+
+@layer base {
+    .special-font {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        font-style: normal;
+    }
+}
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(./images/old-page.jpg);
+    color: #ffffff;
+}
+
+
+body {
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* iii. style for links */
+a {
+    color: #dddddd;
+}
+
+a:hover {
+    color: #00aaff;
+}
+
+a:hover:visited {
+    color: #00aaff;
+}
+
+a:visited {
+    color: #00aaff;
+}
+
+.table-image-center {
+    text-align: center;
+}
+
+
+table {
+    width: 100%;
+    color: #ffffff;
+}
+
+th {
+    color: white;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid white;
+}
+
+th {
+    background-color: black;
+}
+
+button {
+    font-size: x-large;
+}
+
+
+.book-bg {
+    /* ii. background image on element */
+    background-image: url(./images/book-bg.png);
+}
+
+
+/* v. custom cursor */
+.no-drop {
+    cursor: no-drop;
+}
