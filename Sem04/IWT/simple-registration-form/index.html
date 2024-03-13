@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            width: 400px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .error {
+            color: red;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="registrationForm">
+            <label for="firstName">First Name</label>
+            <input type="text" id="firstName" placeholder="First Name">
+            <label for="lastName">Last Name</label>
+            <input type="text" id="lastName" placeholder="Last Name">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Email Address">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Password">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password">
+            <button type="button" onclick="validateForm()">Register</button>
+            <p id="errorMessages" class="error"></p>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            var firstName = document.getElementById("firstName").value.trim();
+            var lastName = document.getElementById("lastName").value.trim();
+            var email = document.getElementById("email").value.trim();
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+
+            var errorMessages = "";
+
+            if (firstName === "" || lastName === "" || email === "" || password === "" || confirmPassword === "") {
+                errorMessages += "Please fill in all fields.<br>";
+            }
+
+            if (!isValidEmail(email)) {
+                errorMessages += "Please enter a valid email address.<br>";
+            }
+
+            if (password.length < 8 || password.length > 20) {
+                errorMessages += "Password must be between 8 and 20 characters.<br>";
+            }
+
+            if (password !== confirmPassword) {
+                errorMessages += "Passwords do not match.<br>";
+            }
+
+            if (errorMessages !== "") {
+                document.getElementById("errorMessages").innerHTML = errorMessages;
+            } else {
+                document.getElementById("errorMessages").innerHTML = "";
+                window.location.href = "success-register.html";
+            }
+        }
+
+        function isValidEmail(email) {
+            var atIndex = email.indexOf("@");
+            var dotIndex = email.lastIndexOf(".");
+            if (atIndex > 0 && dotIndex > atIndex + 1 && dotIndex < email.length - 1) {
+                return true;
+            }
+        }
+    </script>
+</body>
+
+</html>
