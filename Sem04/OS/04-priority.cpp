@@ -1,5 +1,4 @@
-// SJF (Non Preemptive)
-
+// Priority CPU Scheduling
 
 #include <iostream>
 using namespace std;
@@ -13,6 +12,7 @@ float calc_turn_around_time(int burst_time[][5], int turn_around_time[][5], int 
         turn_around_time[i][2] = 0;
         for (int j = 0; j <= i; j++)
         {
+            cout << turn_around_time[i][2] << endl;
             turn_around_time[i][2] += burst_time[j][1];
         }
         turn_around_time_sum += (float)turn_around_time[i][2];
@@ -43,24 +43,32 @@ void bubbleSortMulti(int arr[][5], int n, int to_sort_field)
 int main()
 {
     cout << endl
-         << "--- Shortest Job First (Non Preemptive) ---" << endl
+         << "--- Priority CPU Scheduling ---" << endl
          << endl;
     // process[process_id, burst_time, turn_around_time, waiting_time, priority]
     int process[3][5] = {
-        {1, 20, 0, 0, 0},
-        {2, 5, 0, 0, 0},
-        {3, 10, 0, 0, 0}};
+        {1, 20, 0, 0, 2},
+        {2, 5, 0, 0, 3},
+        {3, 10, 0, 0, 1}};
 
     int number_of_processes = sizeof(process) / sizeof(process[0]);
 
-    // sort according to bust time
-    bubbleSortMulti(process, number_of_processes, 1);
+    // sort according to priority
+    bubbleSortMulti(process, number_of_processes, 4);
 
     // calculate TAT
     float avg_TAT = calc_turn_around_time(process, process, number_of_processes);
 
     // calculate WT
     float avg_WT = calc_waiting_time(process, process, process, number_of_processes);
+
+    // print sequence of processes
+    cout << "\nSequence of processes" << endl;
+    for (int i = 0; i < number_of_processes; i++)
+    {
+        cout << "P" << process[i][0] << " -> ";
+    }
+    cout << "end" << endl;
 
     // print results table
     bubbleSortMulti(process, number_of_processes, 0);
@@ -70,10 +78,12 @@ int main()
          << "\t"
          << "TAT "
          << "\t"
-         << "_WT " << endl;
+         << "_WT "
+         << "\t"
+         << "Pri " << endl;
     for (int i = 0; i < number_of_processes; i++)
     {
-        for (int k = 0; k < 4; k++)
+        for (int k = 0; k < 5; k++)
         {
             cout << process[i][k] << "\t";
         }
@@ -88,5 +98,3 @@ int main()
     cout << endl;
     return 0;
 }
-
-
