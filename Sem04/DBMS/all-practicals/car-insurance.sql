@@ -329,8 +329,6 @@ WHERE first_name = 'Mr' AND last_name = 'Bean';
 
 DROP VIEW IF EXISTS customer_car_view;
 
-
-
 -- --------------------- 2024 March 19 - In lab
 
 -- ----- Horizontal View
