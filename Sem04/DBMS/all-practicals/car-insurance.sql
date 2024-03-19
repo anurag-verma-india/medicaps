@@ -328,3 +328,17 @@ SET phone_number = '+987654321'
 WHERE first_name = 'Mr' AND last_name = 'Bean';
 
 DROP VIEW IF EXISTS customer_car_view;
+
+
+
+-- --------------------- 2024 March 19 - In lab
+
+-- ----- Horizontal View
+CREATE VIEW CUSTOM_VIEW AS SELECT *
+FROM customer WHERE last_name =  'Man';
+SELECT * FROM CUSTOM_VIEW;
+
+-- ----- Vertical View
+CREATE VIEW CUSTOM_VIEW1 AS SELECT first_name, last_name, phone_number from customer;
+SELECT * FROM CUSTOM_VIEW1;
+

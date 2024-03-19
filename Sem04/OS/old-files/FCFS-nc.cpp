@@ -10,8 +10,8 @@ void findWaitingTime(int processes[], int n,
 		wt[i] = bt[i - 1] + wt[i - 1];
 }
 
-void findTurnAroundTime(int processes[], int n,
-						int bt[], int wt[], int tat[])
+void find_turn_around_time(int processes[], int n,
+						   int bt[], int wt[], int tat[])
 {
 	for (int i = 0; i < n; i++)
 		tat[i] = bt[i] + wt[i];
@@ -23,7 +23,7 @@ void findavgTime(int processes[], int n, int bt[])
 
 	findWaitingTime(processes, n, bt, wt);
 
-	findTurnAroundTime(processes, n, bt, wt, tat);
+	find_turn_around_time(processes, n, bt, wt, tat);
 
 	cout << "Processes "
 		 << " Burst time "

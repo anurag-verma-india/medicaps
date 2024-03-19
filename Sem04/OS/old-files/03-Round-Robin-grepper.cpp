@@ -66,8 +66,8 @@ void findWaitingTime(int processes[], int n,
 }
 
 // Function to calculate turn around time
-void findTurnAroundTime(int processes[], int n,
-						int bt[], int wt[], int tat[])
+void find_turn_around_time(int processes[], int n,
+						   int bt[], int wt[], int tat[])
 {
 	// calculating turnaround time by adding
 	// bt[i] + wt[i]
@@ -85,7 +85,7 @@ void findavgTime(int processes[], int n, int bt[],
 	findWaitingTime(processes, n, bt, wt, quantum);
 
 	// Function to find turn around time for all processes
-	findTurnAroundTime(processes, n, bt, wt, tat);
+	find_turn_around_time(processes, n, bt, wt, tat);
 
 	// Display processes along with all details
 	cout << "Processes "
