@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE bookstore SYSTEM "bookstore.dtd">
+<bookstore>
+
+    <book>
+        <title>Web Programming, Building Internet Applications</title>
+        <author>Chris Bates </author>
+        <ISBN>123-456-789</ISBN>
+        <publisher>Wiley</publisher>
+        <edition>2nd</edition>
+        <prices>329</prices>
+    </book>
+
+    <book>
+        <title>Web Technologies, Black book</title>
+        <author>Kogent</author>
+
+        <ISBN>123-456-789</ISBN>
+        <publisher>Dreamtech</publisher>
+        <edition>2nd</edition>
+        <prices>229</prices>
+    </book>
+
+    <book>
+        <title>WEB TECHNOLOGIES</title>
+        <author>Uttam.K.Roy</author>
+        <ISBN>123-456-789</ISBN>
+        <publisher>Oxford</publisher>
+        <edition>2nd</edition>
+        <prices>429</prices>
+    </book>
+
+</bookstore>

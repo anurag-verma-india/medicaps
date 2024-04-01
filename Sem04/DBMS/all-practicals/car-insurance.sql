@@ -260,6 +260,35 @@ SELECT *,
     (SELECT COUNT(*) FROM car_insurance.payment WHERE policy_id = p.policy_id) AS num_payments
 FROM car_insurance.policy p;
 
+-- Subquery in INSERT statement
+INSERT INTO car_insurance.customer (first_name, last_name, email, phone_number, address)
+VALUES (
+    'Black',
+    'Panther',
+    'blackpanther@example.com',
+    '+1234567894',
+    'Wakanda'
+);
+
+INSERT INTO car_insurance.car (license_no, model)
+VALUES (
+    'PANTHER001',
+    'Black Panther'
+);
+
+INSERT INTO car_insurance.owns (customer_id, license_no)
+VALUES (
+    (SELECT customer_id FROM car_insurance.customer WHERE first_name = 'Black' AND last_name = 'Panther'),
+    'PANTHER001'
+);
+
+
+-- Nested Subquery
+SELECT c.first_name, c.last_name, a.date
+FROM car_insurance.customer c
+JOIN car_insurance.owns o ON c.customer_id = o.customer_id
+JOIN car_insurance.participated p ON o.license_no = p.license_no
+JOIN car_insurance.accident a ON p.accident_report_id = a.report_id;
 
 
 
