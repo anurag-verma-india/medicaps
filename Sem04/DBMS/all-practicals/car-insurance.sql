@@ -260,7 +260,7 @@ SELECT *,
     (SELECT COUNT(*) FROM car_insurance.payment WHERE policy_id = p.policy_id) AS num_payments
 FROM car_insurance.policy p;
 
--- Subquery in INSERT statement
+-- Subquery in (DML) INSERT statement
 INSERT INTO car_insurance.customer (first_name, last_name, email, phone_number, address)
 VALUES (
     'Black',
@@ -269,6 +269,7 @@ VALUES (
     '+1234567894',
     'Wakanda'
 );
+
 
 INSERT INTO car_insurance.car (license_no, model)
 VALUES (
@@ -281,6 +282,13 @@ VALUES (
     (SELECT customer_id FROM car_insurance.customer WHERE first_name = 'Black' AND last_name = 'Panther'),
     'PANTHER001'
 );
+select * from customer WHERE first_name='Black' AND last_name='Panther';
+
+
+-- Deleting Black Panther from Database
+DELETE FROM owns WHERE license_no="PANTHER001";
+DELETE FROM car WHERE license_no="PANTHER001";
+DELETE FROM customer WHERE first_name="Black";
 
 
 -- Nested Subquery
@@ -293,35 +301,63 @@ JOIN car_insurance.accident a ON p.accident_report_id = a.report_id;
 
 
 -- ----------------------- 7
+-- 1 simple
 SELECT COUNT(*) AS total_accidents FROM car_insurance.accident;
 
 SELECT AVG(amount) AS average_premium_amount FROM car_insurance.premium_payment;
 
+-- 2 Group by and having
 
-SELECT place, COUNT(*) AS total_accidents
-FROM car_insurance.accident
-GROUP BY place;
+
+-- SELECT place, COUNT(*) AS total_accidents
+-- FROM car_insurance.accident
+-- GROUP BY place;
 
 SELECT place, COUNT(*) AS total_accidents
 FROM car_insurance.accident
 GROUP BY place
-HAVING COUNT(*) > 2;
+HAVING COUNT(*) >= 1;
 
 
+-- SELECT customer.*, car.model
+-- FROM car_insurance.customer
+-- INNER JOIN car_insurance.owns ON customer.customer_id = owns.customer_id
+-- INNER JOIN car_insurance.car ON owns.license_no = car.license_no;
+
+
+-- SELECT c.*, p.policy_id
+-- FROM car_insurance.customer c
+-- LEFT JOIN car_insurance.policy p ON c.customer_id = p.policy_id;
+
+
+-- SELECT *
+-- FROM car_insurance.customer
+-- WHERE customer_id IN (
+--     SELECT customer_id
+--     FROM car_insurance.owns
+--     WHERE license_no IN (
+--         SELECT license_no
+--         FROM car_insurance.participated
+--     )
+-- );
+
+
+-- SELECT *
+-- FROM car_insurance.customer c
+-- WHERE EXISTS (
+--     SELECT 1
+--     FROM car_insurance.payment p
+--     WHERE p.policy_id = c.customer_id
+-- );
+
+-- 3. Inner and outer join
+
+-- IN
 SELECT customer.*, car.model
 FROM car_insurance.customer
 INNER JOIN car_insurance.owns ON customer.customer_id = owns.customer_id
-INNER JOIN car_insurance.car ON owns.license_no = car.license_no;
-
-
-SELECT c.*, p.policy_id
-FROM car_insurance.customer c
-LEFT JOIN car_insurance.policy p ON c.customer_id = p.policy_id;
-
-
-SELECT *
-FROM car_insurance.customer
-WHERE customer_id IN (
+INNER JOIN car_insurance.car ON owns.license_no = car.license_no
+WHERE customer.customer_id IN (
     SELECT customer_id
     FROM car_insurance.owns
     WHERE license_no IN (
@@ -330,15 +366,19 @@ WHERE customer_id IN (
     )
 );
 
-
-SELECT *
-FROM car_insurance.customer c
+-- EXISTS
+SELECT c.license_no, c.model
+FROM car_insurance.car c
 WHERE EXISTS (
     SELECT 1
-    FROM car_insurance.payment p
-    WHERE p.policy_id = c.customer_id
+    FROM car_insurance.participated p
+    INNER JOIN car_insurance.accident a ON p.accident_report_id = a.report_id
+    WHERE p.license_no = c.license_no
 );
 
+
+select * from policy;
+select * from customer;
 
 -- ----------------------- 8
 CREATE VIEW customer_car_view AS
@@ -347,16 +387,54 @@ FROM car_insurance.customer c
 INNER JOIN car_insurance.owns ON c.customer_id = owns.customer_id
 INNER JOIN car_insurance.car ON owns.license_no = car.license_no;
 
+SELECT * FROM customer WHERE first_name="Mr" AND last_name="Bean";
+-- INSERT INTO customer_car_view (first_name, last_name, email, phone_number, address, car_model)
+-- VALUES ('Mr', 'Bean', 'mrbean@example.com', '+123456789', '123 Main St', 'Toyota Camry');
+INSERT INTO customer_car_view (first_name, last_name, email, phone_number, address)
+VALUES ('Mr', 'Bean', 'mrbean@example.com', '+123456789', '123 Main St');
 
-INSERT INTO customer_car_view (first_name, last_name, email, phone_number, address, car_model)
-VALUES ('Mr', 'Bean', 'mrbean@example.com', '+123456789', '123 Main St', 'Toyota Camry');
+INSERT INTO customer_car_view (license_no ,car_model)
+-- VALUES ('Mini Cooper');
+VALUES ('SLW287R','Mini Cooper');
+
+
+-- INSERT INTO car_insurance.customer (first_name, last_name, email, phone_number, address)
+-- VALUES ('Mr', 'Bean', 'mrbean@example.com', '+123456789', '123 Main St');
+
+-- INSERT INTO car_insurance.car (license_no, model)
+-- VALUES ('ABC123', 'Toyota Camry');
+
+-- INSERT INTO car_insurance.owns (customer_id, license_no)
+-- VALUES ((SELECT customer_id FROM car_insurance.customer WHERE first_name = 'Mr' AND last_name = 'Bean'), 'ABC123');
+
 
 
 UPDATE customer_car_view
 SET phone_number = '+987654321'
 WHERE first_name = 'Mr' AND last_name = 'Bean';
 
+
+
+ALTER VIEW customer_car_view AS
+SELECT c.customer_id, c.first_name, c.last_name, c.email, c.phone_number, c.address, car.model AS car_model
+FROM car_insurance.customer c
+INNER JOIN car_insurance.car ON owns.license_no = car.license_no;
+INNER JOIN car_insurance.owns ON c.customer_id = owns.customer_id
+
+
 DROP VIEW IF EXISTS customer_car_view;
+
+SELECT * FROM customer_car_view;
+
+SELECT * FROM customer WHERE first_name="Mr" AND last_name="Bean";
+SELECT * FROM customer;
+SELECT * FROM owns;
+SELECT * FROM car;
+
+DELETE FROM owns WHERE license_no="ABC123";
+DELETE FROM car WHERE license_no="ABC123";
+DELETE FROM customer WHERE first_name="Mr";
+
 
 -- --------------------- 2024 March 19 - In lab
 
