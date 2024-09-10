@@ -1,0 +1,22 @@
+PatientID,Name,Age,Height_cm,Weight_kg,BloodPressure,Temperature_C,Diagnosis
+1,John Doe,45,175,70,120/80,98.6,Hypertension
+2,Jane Smith,29,,55,110/70,97.8,Anemia
+3,Michael Brown,38,180,80,130/85,99.1,Diabetes
+4,Emily Davis,29,160,50,,98.2,Healthy
+5,William Wilson,52,170,90,140/90,,Heart Disease
+6,Olivia Martinez,45,,70,125/85,100.2,Obesity
+7,Alice Johnson,35,165,,110/75,99.5,,Influenza
+8,James Lee,40,175,80,130/85,98.7,Hypertension
+9,Laura Anderson,29,160,58,115/75,98.9,Diabetes
+10,Robert Thomas,40,185,85,140/90,100.0,Heart Disease
+11,Emily Davis,29,160,50,,98.2,Healthy  # Duplicate of row 4
+12,Michael Brown,38,180,80,130/85,99.1,Diabetes  # Duplicate of row 3
+13,Olivia Martinez,45,,70,125/85,100.2,Obesity  # Missing values
+14,Jane Smith,29,,55,110/70,97.8,Anemia  # Missing values
+15,Lucas Harris,70,190,150,150/100,102.0,Heart Disease  # Outlier
+16,Ava Robinson,23,150,40,110/70,96.0,Healthy
+17,Isabella Clark,33,250,90,145/95,101.5,Obesity  # Outlier
+18,Ethan King,50,170,80,120/80,98.5,Hypertension
+19,Charlotte Wright,60,165,70,130/85,100.0,Diabetes
+20,Liam Walker,28,175,75,125/85,99.0,Flu
+
