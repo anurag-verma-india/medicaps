@@ -1,3 +1,4 @@
-library("readxl")
-laptops_data <- read_excel("flipkart-laptops.xlsx")
+
+patient_data <- read_excel("patient-data.csv")
+
 
