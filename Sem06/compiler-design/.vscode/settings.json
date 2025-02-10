@@ -14,6 +14,7 @@
         "polybar/config": "ini",
         "polybar/*.conf": "ini",
         "*.rmd": "markdown",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "string": "cpp"
     }
 }

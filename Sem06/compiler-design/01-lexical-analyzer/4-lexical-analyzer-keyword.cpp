@@ -43,24 +43,25 @@ class LexicalAnalyzer {
     }
 };
 
-int main() {
-    // Test cases to demonstrate the cleaning process
-    std::string sourceCode = R"(void function() {
-    int a = 5;
-    while (a > 0) {
-        if (a % 2 == 0) {
-            printf("Even: %d\n", a);
-        } else {
-            printf("Odd: %d\n", a);
+int main(int argc, char* argv[]) {
+    // Input code
+    std::string sourceCode = R"(
+    void function() {
+        int a = 5;
+        while (a > 0) {
+            if (a % 2 == 0) {
+                printf("Even: %d\n", a);
+            } else {
+                printf("Odd: %d\n", a);
+            }
+            a--;
         }
-        a--;
+        return 0;
     }
-    return 0;
 )";
-    for (int i = 0; i < 10; i++) std::cout << "-";
+    std::cout << std::string(7, '-');
     std::cout << "SOURCE CODE";
-    for (int i = 0; i < 10; i++) std::cout << "-";
-    std::cout << "\n";
+    std::cout << std::string(7, '-') << "\n";
     std::cout << sourceCode << "\n";
 
     LexicalAnalyzer analyzer;

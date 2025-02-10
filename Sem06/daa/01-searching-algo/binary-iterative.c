@@ -10,19 +10,6 @@ void generateRandomNumbers(int arr[], int size, int max_val) {
         arr[i] = rand() % (max_val);  // Random numbers between 0 and max_val
     }
 }
-// int linearSearch(int* arr, int n, int key) {
-//     // Starting the loop and looking for the key in arr
-//     for (int i = 0; i < n; i++) {
-//         // If key is found, return key
-//         if (arr[i] == key) {
-//             return i;
-//         }
-//     }
-
-//     // If key is not found, return some value to indicate
-//     // end
-//     return -1;
-// }
 
 int binarySearch(int arr[], int left, int right, int key) {
     // Loop will run till left > right. It means that there
@@ -47,7 +34,6 @@ int binarySearch(int arr[], int left, int right, int key) {
             right = mid - 1;
         }
     }
-
     // If we reach here, then element was not present
     return -1;
 }
@@ -74,7 +60,6 @@ void insertionSort(int* arr, int N) {
 int checkProgramWithSize(int size) {
     int arr[size];
     clock_t start, end;
-    // double cpu_time_used;
     long double cpu_time_used;
 
     // Seed for random number generation
@@ -96,14 +81,13 @@ int checkProgramWithSize(int size) {
     // Calculate elapsed time
     cpu_time_used = ((long double)(end - start)) / CLOCKS_PER_SEC;
 
-    printf("%d, %Lf, %d\n", size, cpu_time_used, key);
+    printf("%d, %Lf\n", size, cpu_time_used);
 
     return 0;
 }
 
 int main() {
-    // int sizes[10] = {1000, 2000, 3000, 5000, 10000, 20000, 50000, 60000, 75000, 100000};
-    printf("No of Inputs, time (s), index\n");
+    printf("No of Inputs, Time (sec)\n");
     for (int i = 1; i < INPUTS + 1; i++) {
         checkProgramWithSize(i * 10000);
     }

@@ -2,16 +2,6 @@
 #include <stdlib.h>
 #include <time.h>
 
-// #define SIZE 1000
-// #define SIZE 2000
-// #define SIZE 5000
-// #define SIZE 10000
-// #define SIZE 15000
-// #define SIZE 20000
-// #define SIZE 50000
-// #define SIZE 75000
-// #define SIZE 100000
-// #define SIZE 200000
 #define INPUTS 10
 
 // Function to generate random numbers
@@ -57,15 +47,13 @@ int checkProgramWithSize(int size) {
     // Calculate elapsed time
     cpu_time_used = ((double)(end - start)) / CLOCKS_PER_SEC;
 
-    // printf("Time taken for Bubble Sort (input size %d): %f seconds\n", size, cpu_time_used);
     printf("%d, %f\n", size, cpu_time_used);
 
     return 0;
 }
 
 int main() {
-    // int sizes[10] = {1000, 2000, 3000, 5000, 10000, 20000, 50000, 60000, 75000, 100000};
-    printf("No. of Inputs, time (s)\n");
+    printf("No of Inputs, Bubble Sort - time (sec)\n");
     for (int i = 1; i < INPUTS + 1; i++) {
         checkProgramWithSize(i * 10000);
     }
