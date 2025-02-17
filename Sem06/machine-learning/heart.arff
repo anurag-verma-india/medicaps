@@ -1,0 +1,23 @@
+@relation "Heart Disease Dataset"
+
+@attribute age numeric
+@attribute sex numeric
+@attribute cp numeric
+@attribute trestbps numeric
+@attribute chol numeric
+@attribute fbs numeric
+@attribute restecg numeric
+@attribute thalach numeric
+@attribute exang numeric
+@attribute oldpeak numeric
+@attribute slope numeric
+@attribute ca numeric
+@attribute thal numeric
+@attribute target string
+
+@data
+52,1,0,125,212,0,1,168,0,1,2,2,3,no
+53,1,0,140,203,1,0,155,1,3.1,0,0,3,no
+58,0,0,100,248,0,0,122,0,1,1,0,2,yes
+71,0,0,112,149,0,1,125,0,1.6,1,0,2,yes
+34,0,1,118,210,0,1,192,0,0.7,2,0,2,yes
