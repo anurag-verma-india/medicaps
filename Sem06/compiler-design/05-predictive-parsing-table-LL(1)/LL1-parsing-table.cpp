@@ -1,10 +1,7 @@
-// Check once
-
 #include <iomanip>
 #include <iostream>
 #include <map>
 #include <set>
-#include <string>
 #include <vector>
 using namespace std;
 
@@ -219,26 +216,11 @@ int main() {
     // T' → *FT' | ε
     // F → (E) | id
 
-    // parser.addProduction('E', "TE'");
-    // parser.addProduction('E', "#");
-    // parser.addProduction('T', "FT'");
-    // parser.addProduction('F', "(E)");
-    // parser.addProduction('F', "i");
-
-    parser.addProduction('S', "aBDh");
-
-    parser.addProduction('B', "cC");
-
-    parser.addProduction('C', "bC");
-    parser.addProduction('C', "#");
-
-    parser.addProduction('D', "EF");
-
-    parser.addProduction('E', "g");
+    parser.addProduction('E', "TE'");
     parser.addProduction('E', "#");
-
-    parser.addProduction('F', "f");
-    parser.addProduction('F', "#");
+    parser.addProduction('T', "FT'");
+    parser.addProduction('F', "(E)");
+    parser.addProduction('F', "i");
 
     parser.constructParsingTable();
     parser.printParsingTable();
