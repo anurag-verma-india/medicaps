@@ -4,27 +4,18 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-# import urllib.request
-# import ssl
-import kagglehub
-
-path = kagglehub.dataset_download("colormap/spambase")
-print("Path to dataset files:", path)
+import urllib.request
+import ssl
 
 # Disable SSL verification (only for downloading dataset)
-# ssl._create_default_https_context = ssl._create_unverified_context
+ssl._create_default_https_context = ssl._create_unverified_context
 
 # Download the SMS Spam Collection Dataset
-# url = "https://raw.githubusercontent.com/mohitgupta-omg/Kaggle-SMS-Spam-Collection-Dataset/master/spam.csv"
-# url = path
-# Download latest version
-# urllib.request.urlretrieve(url, "spam_dataset.csv")
+url = "https://raw.githubusercontent.com/mohitgupta-omg/Kaggle-SMS-Spam-Collection-Dataset/master/spam.csv"
+urllib.request.urlretrieve(url, "spam_dataset.csv")
 
 # Load the dataset
-# df = pd.read_csv("spam_dataset.csv", encoding='latin-1')
-df = pd.read_csv(f"{path}/spambase.csv", encoding='latin-1')
-
-print(df.head())
+df = pd.read_csv("spam_dataset.csv", encoding='latin-1')
 
 # Rename columns for clarity
 df.columns = ['label', 'text']
